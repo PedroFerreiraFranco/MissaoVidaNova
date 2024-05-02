@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários - Missão Vida Nova</title>
+    <!-- Adicione o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000040; border-bottom: 3px solid white;">
+        <!-- Logo e nome -->
+        <div class="navbar-brand">
+            <img src="/img/logo2.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+            Missão Vida Nova
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-fill mx-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.html" style="color: white; font-size: 1.5em;">Página Inicial</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="registro_funcionarios.html" style="color: white; font-size: 1.5em;">Funcionários</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="registro_pacientes.html" style="color: white; font-size: 1.5em;">Pacientes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="registro_documentos.html" style="color: white; font-size: 1.5em;">Documentos</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+
+    <!-- Conteúdo da página -->
+    <div class="container">
+        <h1 class="mission-title" style="color: #000040; text-align: center; padding-bottom: 20px;">Funcionários</h1>
+        
+        <!-- Botões de ação -->
+        <div class="text-center mb-4">
+            <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#addEmployeeModal">Adicionar Funcionário</button>
+        </div>
+
+        <!-- Tabela de funcionários -->
+        <table id="employeeTable" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Salário</th>
+                    <th scope="col">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui você pode preencher dinamicamente a tabela com os detalhes dos funcionários -->
+                <!-- Exemplo: <tr><td>1</td><td>John Doe</td><td>Desenvolvedor</td><td>R$ 5000,00</td><td><button class="btn btn-primary btn-sm edit-btn">Editar</button> <button class="btn btn-danger btn-sm remove-btn">Excluir</button></td></tr> -->
+            </tbody>
+        </table>
+    </div>
+
+  <!-- Modal de Adicionar Funcionário -->
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEmployeeModalLabel">Adicionar Funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addEmployeeForm">
+                    <div class="form-group">
+                        <label for="employeeName">Nome:</label>
+                        <input type="text" class="form-control" id="employeeName" placeholder="Digite o nome do funcionário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePosition">Cargo:</label>
+                        <input type="text" class="form-control" id="employeePosition" placeholder="Digite o cargo do funcionário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeSalary">Salário:</label>
+                        <input type="number" class="form-control" id="employeeSalary" placeholder="Digite o salário do funcionário" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <!-- Modal de Editar Funcionário -->
+  <div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEmployeeModalLabel">Editar Funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editEmployeeForm">
+                    <input type="hidden" id="editEmployeeId" name="editEmployeeId">
+                    <div class="form-group">
+                        <label for="editEmployeeName">Nome:</label>
+                        <input type="text" class="form-control" id="editEmployeeName" name="editEmployeeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmployeePosition">Cargo:</label>
+                        <input type="text" class="form-control" id="editEmployeePosition" name="editEmployeePosition" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmployeeSalary">Salário:</label>
+                        <input type="number" class="form-control" id="editEmployeeSalary" name="editEmployeeSalary" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+      <!-- Rodapé -->
+      <footer class="footer" style="background-color: #000040; color: white; padding: 15px 0;">
+        <p>&copy; 2024 Missão Vida Nova. Todos os direitos reservados.</p>
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+body{
+background-color: #e6e6e6;
+}
+
+.container{
+    padding: 3em 3em;
+}
+
+.carousel {
+    width: 50%;
+    margin: auto;
+}
+
+.navbar {
+    text-align: center;
+    background-color: #333; /* Cor de fundo do navbar */
+    padding: 10px 0; /* Espaçamento interno do navbar */
+}
+
+.navbar-nav {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    margin: 0 10px; /* Espaçamento entre os itens do navbar */
+}
+
+.nav-link {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Efeito de sublinhar ao passar o mouse */
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000040;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
