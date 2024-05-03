@@ -3,73 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missão Vida Nova</title>
+    <title>Pacientes - Missão Vida Nova</title>
     <!-- Adicione o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000040; border-bottom: 3px solid white;">
-        <div class="mx-auto">
-            <!-- Adicione o botão de navegação para dispositivos móveis -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Centralize o conteúdo -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav navbar-fill">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" style="color: white; font-size: 1.5em;">PÁGINA INICIAL</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registro_funcionarios.html" style="color: white; font-size: 1.5em;">FUNCIONÁRIOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registro_pacientes.html" style="color: white; font-size: 1.5em;">PACIENTES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registro_documentos.html" style="color: white; font-size: 1.5em;">DOCUMENTOS</a>
-                    </li>
-                </ul>
-            </div>
+        <!-- Logo e nome -->
+        <div class="navbar-brand">
+            <img src="/img/logo2.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+            Missão Vida Nova
         </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-fill mx-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.html" style="color: white;">Página Inicial</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="registro_funcionarios.html" style="color: white;">Funcionários</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="registro_documentos.html" style="color: white">Documentos</a>
+              </li>
+          </ul>
+      </div>
     </nav>
 
+    <!-- Conteúdo da página -->
+    <div class="container">
+        <h1 class="mission-title" style="color: #000040; text-align: center; padding-bottom: 20px;">Pacientes</h1>
+        
+        <!-- Botões de ação -->
+        <div class="text-center mb-4">
+            <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#addPatientModal">Adicionar Paciente</button>
+        </div>
 
-     <!-- Rodapé -->
-     <footer class="footer" style="background-color: #000040; color: white; padding: 5px 0;">
-        <div class="container">
-            <p style="text-align: center;">&copy; 2024 Missão Vida Nova. Todos os direitos reservados.</p>
-            <br>
-            <p style="text-align: center;">Criadores</p>
-            <br>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <p>Pedro Ferreira Franco</p>
-                    <p>Telefone: (35) 99808-5210</p>
-                    <p>E-mail: pedroferreirafranco22@gmail.com</p>
-                    <br>
+        <!-- Tabela de pacientes -->
+        <table id="patientTable" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Idade</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">RG</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Observação</th>
+                    <th scope="col">Ações</th> <!-- Adiciona uma nova coluna para ações -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="img/imagem1.png" alt="Foto do paciente" style="width: 100px; height: 100px; border-radius: 50%;"></td>
+                    <td>Nome do Paciente</td>
+                    <td>30</td>
+                    <td>123.456.789-00</td>
+                    <td>12345678</td>
+                    <td>Cidade do Paciente</td>
+                    <td>Aguardando</td>
+                    <td>Observação do Paciente</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm delete-btn">Excluir</button>
+                        <button class="btn btn-primary btn-sm edit-btn">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+
+    </div>
+
+    <!-- Modal de Adicionar Paciente -->
+    <div class="modal fade" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPatientModalLabel">Adicionar Paciente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col-md-4 text-center">
-                    <p>Gustavo Alves Luiz</p>
-                    <p>Telefone: (35) 99808-5210</p>
-                    <p>E-mail: pedroferreirafranco22@gmail.com</p>
-                    <br>
-                </div>
-                <div class="col-md-4 text-center">
-                    <p>Ryan Pereira Mendes</p>
-                    <p>Telefone: (35) 99808-5210</p>
-                    <p>E-mail: pedroferreirafranco22@gmail.com</p>
-                    <br>
+                <div class="modal-body">
+                    <form id="addPatientForm">
+                        <div class="form-group">
+                            <label for="patientName">Nome:</label>
+                            <input type="text" class="form-control" id="patientName" placeholder="Digite o nome do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientAge">Idade:</label>
+                            <input type="number" class="form-control" id="patientAge" placeholder="Digite a idade do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientCPF">CPF:</label>
+                            <input type="text" class="form-control" id="patientCPF" placeholder="Digite o CPF do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientRG">RG:</label>
+                            <input type="text" class="form-control" id="patientRG" placeholder="Digite o RG do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientCity">Cidade:</label>
+                            <input type="text" class="form-control" id="patientCity" placeholder="Digite a cidade do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientStatus">Status:</label>
+                            <select class="form-control" id="patientStatus">
+                                <option value="aguardo">Aguardo</option>
+                                <option value="internado">Internado</option>
+                                <option value="recuperado">Recuperado</option>
+                                <option value="expulso">Expulso</option>
+                                <option value="desistência">Desistência</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientObservation">Observação:</label>
+                            <textarea class="form-control" id="patientObservation" rows="3" maxlength="300" placeholder="Digite uma observação (opcional)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPhoto">Foto:</label>
+                            <input type="file" class="form-control-file" id="patientPhoto" accept="image/*">
+                        </div>                        
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
-    
+    </div>
 
-    <!-- Adicione o JS do Bootstrap (opcional, mas necessário para certos recursos do Bootstrap) -->
+        <!-- Modal de Editar Paciente -->
+    <div class="modal fade" id="editPatientModal" tabindex="-1" role="dialog" aria-labelledby="editPatientModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPatientModalLabel">Editar Paciente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPatientForm">
+                        <input type="hidden" id="editPatientID"> <!-- Campo oculto para armazenar o ID do paciente -->
+
+                        <div class="form-group">
+                            <label for="editPatientName">Nome:</label>
+                            <input type="text" class="form-control" id="editPatientName" placeholder="Digite o nome do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientAge">Idade:</label>
+                            <input type="number" class="form-control" id="editPatientAge" placeholder="Digite a idade do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientCPF">CPF:</label>
+                            <input type="text" class="form-control" id="editPatientCPF" placeholder="Digite o CPF do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientRG">RG:</label>
+                            <input type="text" class="form-control" id="editPatientRG" placeholder="Digite o RG do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientCity">Cidade:</label>
+                            <input type="text" class="form-control" id="editPatientCity" placeholder="Digite a cidade do paciente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientStatus">Status:</label>
+                            <select class="form-control" id="editPatientStatus">
+                                <option value="aguardo">Aguardo</option>
+                                <option value="internado">Internado</option>
+                                <option value="recuperado">Recuperado</option>
+                                <option value="expulso">Expulso</option>
+                                <option value="desistência">Desistência</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPatientObservation">Observação:</label>
+                            <textarea class="form-control" id="editPatientObservation" rows="3" maxlength="300" placeholder="Digite uma observação (opcional)"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Rodapé -->
+    <footer class="footer" style="background-color: #000040; color: white; padding: 15px 0;">
+        <p>&copy; 2024 Missão Vida Nova. Todos os direitos reservados.</p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="pacientes.js"></script>
 </body>
 </html>

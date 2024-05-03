@@ -55,3 +55,8 @@ body {
     padding: 15px 0;
     text-align: center;
 }
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
